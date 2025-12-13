@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects and experiments by Aditya Sada Shankar">
+    <title>Aditya Sada Shankar | Projects</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+   <header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">ADITYA SADA SHANKAR</a>
+
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu" class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>               
+                <li><a href="projects.html">MY PROJECTS</a></li>
+                <li><a href="index.html#contact">Get In Touch</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/adi__jod/?next=%2F&hl=en#" 
+               target="_blank" aria-label="Instagram">
+               <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/adityasadashankar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+               target="_blank" aria-label="LinkedIn">
+               <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="https://www.facebook.com/share/1AufWigtr8/" 
+               target="_blank" aria-label="Facebook">
+               <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <main id="main" class="container">
+        <section class="page-intro">
+            <h1>Projects</h1>
+            <p class="lead">Curated selection of Aditya’s web projects — games, tools and web apps. Use the search and filters to find anything quickly.</p>
+            <a class="back-home" href="index.html">← Back to Home</a>
+        </section>
+
+        <section class="controls" aria-label="Project controls">
+            <div class="search-wrap">
+                <label for="project-search" class="visually-hidden">Search projects</label>
+                <input id="project-search" type="search" placeholder="Search by title or description..." aria-label="Search projects" />
+            </div>
+
+            <div class="filters" role="toolbar" aria-label="Project filters">
+                <button class="filter-chip active" data-filter="All">All</button>
+                <button class="filter-chip" data-filter="Games">Games</button>
+                <button class="filter-chip" data-filter="Tools">Tools</button>
+                <button class="filter-chip" data-filter="Web Apps">Web Apps</button>
+            </div>
+        </section>
+
+        <section class="projects-layout">
+            <aside class="list-column" aria-label="Project list">
+                <div id="projects-list" class="projects-list" aria-live="polite">
+                    <noscript>
+                        <p style="color: #fff;">Please enable JavaScript to view the project dashboard.</p>
+                    </noscript>
+                </div>
+            </aside>
+
+            <aside class="spotlight-column" aria-label="Project spotlight" id="spotlight">
+                <div class="spotlight-inner">
+                    <img id="spotlight-image" src="assets/projects/placeholder.jpg" alt="Project preview" />
+                    <div class="spotlight-meta">
+                        <h2 id="spotlight-title">Select a Project</h2>
+                        <p id="spotlight-description">Hover over or click a project card to view details.</p>
+                        <div id="spotlight-tech" class="tags" aria-hidden="true" style="margin-bottom: 20px;"></div>
+                        
+                        <div class="spotlight-actions">
+                            <a id="spotlight-visit" class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Visit site</a>
+                            <button id="spotlight-copy" class="btn">Copy URL</button>
+                            <button id="print-summary" class="btn">Printable Summary</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <div id="print-modal" class="print-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="print-modal-inner">
+            <button id="close-print" class="close" aria-label="Close">✕</button>
+            <div id="print-content" class="print-content">
+                </div>
+            <div class="print-actions">
+                <button id="print-page" class="btn primary">Print</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Aditya Sada Shankar. All rights reserved.</p>
+            <a href="mailto:aditya@example.com">adityasadashankar911@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

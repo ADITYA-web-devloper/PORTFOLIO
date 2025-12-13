@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Aditya Sada Shankar, a 2nd Year CSE B.Tech Student specializing in Front-end Development.">
+    <title>Aditya Sada Shankar | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <a href="#main-content" class="visually-hidden">Skip to main content</a>
+
+   <header class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">ADITYA SADA SHANKAR</a>
+
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu" class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>               
+                <li><a href="projects.html">MY PROJECTS</a></li>
+                <li><a href="index.html#contact">Get In Touch</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/adi__jod/?next=%2F&hl=en#" 
+               target="_blank" aria-label="Instagram">
+               <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/adityasadashankar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+               target="_blank" aria-label="LinkedIn">
+               <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="https://www.facebook.com/share/1AufWigtr8/" 
+               target="_blank" aria-label="Facebook">
+               <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <main id="main-content">
+        <section id="hero" class="hero-section">
+            <div class="container hero-layout">
+                <div class="hero-content fade-in">
+                    <h1>ADITYA SADA SHANKAR</h1>
+                    <p class="hero-intro mono-text">
+                        I build accessible, pixel-perfect, and performant web experiences.
+                        Currently studying CSE, passionate about turning complex problems into simple,
+                        beautiful interface designs.
+                    </p>        
+                    <div class="prompt-requirement-box">
+                        <p class="mono-text" style="font-size: 0.85rem;">
+                            <strong>About this project:</strong><br>
+                           My portfolio highlights a mix of tools, games, and practical web applications. BE.FIT offers curated wellness playlists for meditation and workouts, while Sudoku Zen provides a minimalist, calming puzzle experience. The QR Code Generator allows users to create and download custom QR codes, and the Password Strength Analyzer evaluates password security in real time. FLAPPY-BOY delivers a challenging, fast-paced emoji-based game, and Word Puzzles Ultimate features 65+ levels of anagrams and word searches. StudentBazaar serves as a simple marketplace for students to buy and sell academic items. Together, these projects showcase creativity and strong development skills.
+                        </p>
+                    </div>
+                    <a href="projects.html" class="btn primary neon-glow">View My Work ›</a>
+                </div>
+
+                <div class="hero-image-wrapper fade-in">
+                    <img src="https://i.imghippo.com/files/GLq7366PRY.jpg"
+                         alt="Portrait of Aditya Sada Shankar"
+                         class="profile-pic"
+                         loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section class="logos-section">
+            <div class="container">
+                <p class="mono-text" style="margin-bottom: 20px;">Worked with</p>
+                <div class="logo-grid">
+                    <div class="logo-box" aria-label="ClickUp"><i class="fas fa-check-double"></i> ClickUp</div>
+                    <div class="logo-box" aria-label="Dropbox"><i class="fab fa-dropbox"></i> Dropbox</div>
+                    <div class="logo-box" aria-label="Paychex"><i class="fas fa-money-check-alt"></i> PAYCHEX</div>
+                    <div class="logo-box" aria-label="Elastic"><i class="fas fa-search"></i> elastic</div>
+                    <div class="logo-box" aria-label="Stripe"><i class="fab fa-stripe-s"></i> stripe</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <form id="contact-form" class="contact-form" novalidate>
+                    <div style="display:none;">
+                        <label for="honeypot">Leave this field empty</label>
+                        <input type="text" id="honeypot" name="honeypot">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary neon-glow">Send Message</button>
+                    <form id="contact-form" class="contact-form" novalidate>
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Aditya Sada Shankar. All rights reserved.</p>
+            <a href="mailto:aditya@example.com">adityasadashankar911@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
