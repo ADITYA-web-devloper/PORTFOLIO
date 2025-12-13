@@ -9,7 +9,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/BE.FIT/",
         tech: ["HTML", "CSS", "JS"],
         category: "Web Apps",
-        thumb: "assets/projects/BE.FIT.jpg"
+        thumb: "BE.FIT.jpg"
     },
     {
         slug: "sudoku-zen",
@@ -18,7 +18,7 @@ const projectsData = [
         url: "http://aditya-web-devloper.github.io/SUDOKU/",
         tech: ["JS", "HTML", "CSS"],
         category: "Games",
-        thumb: "assets/projects/Sudoku-Zen.jpg"
+        thumb: "Sudoku-Zen.jpg"
     },
     {
         slug: "qr-code-generator",
@@ -27,7 +27,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/QR-Code-Hub/",
         tech: ["HTML", "JS"],
         category: "Tools",
-        thumb: "assets/projects/QR-Code-Generator.jpg"
+        thumb: "QR-Code-Generator.jpg"
     },
     {
         slug: "flappy-boy",
@@ -36,7 +36,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/FLAPPY-BOY/",
         tech: ["JS", "Canvas"],
         category: "Games",
-        thumb: "assets/projects/FLAPPY-BOY.jpg"
+        thumb: "FLAPPY-BOY.jpg"
     },
     {
         slug: "word-puzzles-ultimate",
@@ -45,7 +45,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/Word-Puzzles-Ultimate/",
         tech: ["JS", "Tailwind", "Tone.js"],
         category: "Games",
-        thumb: "assets/projects/Word-Puzzles-Ultimate.jpg"
+        thumb: "Word-Puzzles-Ultimate.jpg"
     },
     {
         slug: "studentbazaar",
@@ -54,7 +54,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/STUDENTBAZAAR/",
         tech: ["HTML", "CSS", "JS"],
         category: "Web Apps",
-        thumb: "assets/projects/STUDENTBAZAAR.jpg"
+        thumb: "STUDENTBAZAAR.jpg"
     },
     {
         slug: "password-strength-analyzer",
@@ -63,7 +63,7 @@ const projectsData = [
         url: "https://aditya-web-devloper.github.io/Password-Strength-Analyzer/",
         tech: ["HTML", "JS"],
         category: "Tools",
-        thumb: "assets/projects/Password-Strength-Analyzer.jpg"
+        thumb: "Password-Strength-Analyzer.jpg"
     }
 ];
 
@@ -270,4 +270,5 @@ window.onclick = (event) => {
 };
 
 // Start
+
 document.addEventListener('DOMContentLoaded', init);
