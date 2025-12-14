@@ -393,3 +393,71 @@ button { font-family: inherit; }
         display: flex;
     }
 }
+
+/* =========================================
+   HEADER BRANDING & SOCIALS
+   ========================================= */
+
+/* Wrapper to keep Name and Icons together */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between Name and Icons */
+}
+
+/* Social Icons Styling */
+.header-socials {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.header-socials a {
+    color: var(--text-primary);
+    font-size: 1.1rem; /* Adjust icon size */
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: flex; /* Centers the icon in the link */
+}
+
+.header-socials a:hover {
+    color: var(--accent-green);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   MOBILE ADJUSTMENTS (For Header)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Allow the name and icons to wrap if screen is very small */
+    .brand-wrapper {
+        gap: 10px;
+        flex-shrink: 1; /* Allow shrinking to prevent overflow */
+    }
+
+    /* Reduce text size slightly on mobile to fit everything */
+    .logo {
+        font-size: 1rem; 
+        white-space: nowrap; /* Prevent name from breaking into two lines */
+    }
+
+    /* Make icons slightly smaller on phone */
+    .header-socials a {
+        font-size: 1rem;
+    }
+    
+    .header-socials {
+        gap: 8px; /* Tighter spacing on mobile */
+    }
+}
+
+/* Very Small Screens (e.g. iPhone SE) */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 0.9rem; /* Smaller text for tiny screens */
+    }
+    .brand-wrapper {
+        gap: 8px;
+    }
+}
+
