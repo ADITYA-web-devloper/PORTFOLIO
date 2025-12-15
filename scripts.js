@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================
-       2. CONTACT FORM VALIDATION (@gmail.com check)
+       2. CONTACT FORM LOGIC (Validation + Sending)
        ========================================= */
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emailInput = document.getElementById('email');
         const msgInput = document.getElementById('message');
 
-        // Helper: Clear errors when user starts typing
+        // Helper: Remove red borders when user types
         [nameInput, emailInput, msgInput].forEach(input => {
             if(input) {
                 input.addEventListener('input', () => {
@@ -42,74 +42,99 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // STOP page reload
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // STOP the page from reloading
 
-            // 1. Get Values
+            // --- A. VALIDATION STEP ---
             const nameVal = nameInput.value.trim();
             const emailVal = emailInput.value.trim();
             const msgVal = msgInput.value.trim();
-
             let hasError = false;
             let errorMessage = "";
 
-            // 2. Check for Empty Fields first
-            if (nameVal === "") {
-                nameInput.style.borderColor = "#ff4444";
-                hasError = true;
-            }
-            if (emailVal === "") {
-                emailInput.style.borderColor = "#ff4444";
-                hasError = true;
-            }
-            if (msgVal === "") {
-                msgInput.style.borderColor = "#ff4444";
-                hasError = true;
-            }
+            // Check for empty fields
+            if (nameVal === "") { nameInput.style.borderColor = "#ff4444"; hasError = true; }
+            if (emailVal === "") { emailInput.style.borderColor = "#ff4444"; hasError = true; }
+            if (msgVal === "") { msgInput.style.borderColor = "#ff4444"; hasError = true; }
 
-            if (hasError) {
-                errorMessage = "Please fill in all required fields.";
-            } 
-            // 3. SPECIFIC CHECK: Must contain @gmail.com
-            else if (!emailVal.toLowerCase().endsWith("@gmail.com")) {
+            // Check for @gmail.com
+            if (!hasError && !emailVal.toLowerCase().endsWith("@gmail.com")) {
                 emailInput.style.borderColor = "#ff4444";
                 hasError = true;
                 errorMessage = "Email must be a valid @gmail.com address.";
+            } else if (hasError) {
+                errorMessage = "Please fill in all required fields.";
             }
 
-            // 4. If Error, Show message and Stop
+            // If there is an error, stop here
             if (hasError) {
                 if (formStatus) {
                     formStatus.textContent = errorMessage;
                     formStatus.style.color = "#ff4444";
                 }
-                return; // STOP execution here
+                return;
             }
 
-            // 5. Success Logic (Only runs if NO errors)
+            // --- B. SENDING STEP (Web3Forms) ---
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
+            
+            // 1. Show "Sending..." state
+            btn.innerText = "Sending...";
+            btn.disabled = true;
 
-            btn.innerText = "Message sent";
-            btn.style.backgroundColor = "#5cc70c";
-            btn.style.color = "#000";
-            btn.style.borderColor = "#5cc70c";
+            // 2. Prepare the data
+            const formData = new FormData(contactForm);
 
-            if (formStatus) {
-                formStatus.textContent = "Message sent successfully!";
-                formStatus.style.color = "#5cc70c";
-            }
+            // 3. Send to Web3Forms
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    // SUCCESS!
+                    btn.innerText = "Message sent";
+                    btn.style.backgroundColor = "#5cc70c";
+                    btn.style.color = "#000";
+                    btn.style.borderColor = "#5cc70c";
 
-            // Reset after 3 seconds
-            setTimeout(() => {
+                    if (formStatus) {
+                        formStatus.textContent = "Message sent successfully!";
+                        formStatus.style.color = "#5cc70c";
+                    }
+
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.backgroundColor = "";
+                        btn.style.color = "";
+                        btn.style.borderColor = "";
+                        btn.disabled = false;
+                        contactForm.reset();
+                        if (formStatus) formStatus.textContent = "";
+                    }, 3000);
+                } else {
+                    // SERVER ERROR
+                    console.log("Error:", response);
+                    if (formStatus) {
+                        formStatus.textContent = "Error sending message. Check Access Key.";
+                        formStatus.style.color = "#ff4444";
+                    }
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                // NETWORK ERROR
+                console.log(error);
+                if (formStatus) {
+                    formStatus.textContent = "Connection error. Please try again.";
+                    formStatus.style.color = "#ff4444";
+                }
                 btn.innerText = originalText;
-                btn.style.backgroundColor = "";
-                btn.style.color = "";
-                btn.style.borderColor = "";
-                
-                contactForm.reset();
-                if (formStatus) formStatus.textContent = "";
-            }, 3000);
+                btn.disabled = false;
+            });
         });
     }
 });
